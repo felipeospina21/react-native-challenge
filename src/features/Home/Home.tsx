@@ -10,7 +10,7 @@ export default function Home({ navigation }: Props): JSX.Element {
     <MainView
       {...homeProps}
       navigateNext={() => navigation.navigate('Second')}
-      navigateSkip={() => navigation.navigate('Home')}
+      navigateSkip={() => navigation.navigate('SignIn')}
     />
   );
 }

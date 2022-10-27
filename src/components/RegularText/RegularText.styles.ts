@@ -10,6 +10,7 @@ export const regularTextStyles = StyleSheet.create({
   text: {
     fontSize: size.sm,
     color: colors.text_primary,
+    marginVertical: 20,
+    lineHeight: 23,
   },
-
 });

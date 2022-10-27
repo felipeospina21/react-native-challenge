@@ -10,7 +10,7 @@ export default function SecondView({ navigation }: Props) {
     <MainView
       {...secondProps}
       navigateNext={() => navigation.navigate('Third')}
-      navigateSkip={() => navigation.navigate('Home')}
+      navigateSkip={() => navigation.navigate('SignIn')}
     />
   );
 }

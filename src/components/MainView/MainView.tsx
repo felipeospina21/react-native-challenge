@@ -20,13 +20,13 @@ export default function MainView({
 }: MainViewProps): JSX.Element {
   return (
     <View style={styles.container}>
-      <Image source={img} style={styles.image} />
+      <Image source={img} style={styles.image} resizeMode="stretch" />
       <Container style={styles.textContainer}>
         <TitleText>{title}</TitleText>
         <RegularText>{text}</RegularText>
-        <CustomButton title='Next' variant='primary' onPress={navigateNext} />
-        <CustomButton title='Skip' variant='ghost' onPress={navigateSkip} />
-        <StatusBar style='auto' />
+        <CustomButton title="Next" variant="outline" onPress={navigateNext} />
+        <CustomButton title="Skip" variant="ghost" onPress={navigateSkip} />
+        <StatusBar style="auto" />
       </Container>
     </View>
   );

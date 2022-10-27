@@ -1,7 +1,7 @@
-import img1 from '../../assets/img1.png'
+import img1 from '../../assets/img1.png';
 
 export const homeProps = {
-  title:'Main Title',
-  text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem tempora, ducimus,aperiam voluptate neque harum quod temporibus voluptates minima non repudiandae omnis odit',
+  title: 'Halloween History',
+  text: "Less commonly known as Allhalloween, All Hallows' Eve or All Saints' Eve, is a celebration observed in many countries on 31 October, the eve of the Western Christian feast of All Hallows' Day.",
   img: img1,
-}
+};

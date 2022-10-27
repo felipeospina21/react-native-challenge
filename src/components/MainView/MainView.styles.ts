@@ -1,9 +1,7 @@
 import { theme } from '../../styles/theme';
 import { StyleSheet } from 'react-native';
 
-const {
-  colors,
-} = theme;
+const { colors } = theme;
 
 export const homeStyles = StyleSheet.create({
   container: {
@@ -14,8 +12,6 @@ export const homeStyles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: '54%',
-    margin: 0,
   },
   textContainer: {
     height: '40%',
@@ -24,5 +20,4 @@ export const homeStyles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-
 });
