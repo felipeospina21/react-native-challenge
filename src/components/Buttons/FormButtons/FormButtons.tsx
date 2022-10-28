@@ -1,9 +1,9 @@
 import { Link } from '@react-navigation/native';
 import { Text, View } from 'react-native';
-import { CustomButton } from '../../Buttons/CustomButton/CustomButton';
-import { signButtonsStyles as styles } from './SignButtons.styles';
+import { CustomButton } from '../CustomButton/CustomButton';
+import { formButtonsStyles as styles } from './FormButtons.styles';
 
-export interface SignButtonsProps {
+export interface FormButtonsProps {
   onPress: () => void;
   buttonText: string;
   text: string;
@@ -13,7 +13,7 @@ export interface SignButtonsProps {
   };
 }
 
-export function SignButtons({ onPress, buttonText, text, link }: SignButtonsProps): JSX.Element {
+export function FormButtons({ onPress, buttonText, text, link }: FormButtonsProps): JSX.Element {
   return (
     <View style={styles.buttonsContainer}>
       <CustomButton title={buttonText} onPress={onPress} variant="secondary" />

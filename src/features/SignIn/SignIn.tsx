@@ -1,11 +1,11 @@
 import { Text, View } from 'react-native';
-import { SignView } from '../../components';
-import { signViewStyles as styles } from '../../components/SignView/SignView.styles';
+import { FormLayout } from '../../Layouts';
+import { signViewStyles as styles } from '../../Layouts/FormLayout/FormLayout.styles';
 import { SignInForm } from './SignInForm';
 
 export default function SignIn() {
   return (
-    <SignView>
+    <FormLayout>
       <>
         <View>
           <Text style={styles.title}>Hi There !</Text>
@@ -13,6 +13,6 @@ export default function SignIn() {
         </View>
         <SignInForm />
       </>
-    </SignView>
+    </FormLayout>
   );
 }

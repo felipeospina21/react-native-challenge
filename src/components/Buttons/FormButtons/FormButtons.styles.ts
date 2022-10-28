@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { theme } from '../../../styles/theme';
 
-export const signButtonsStyles = StyleSheet.create({
+export const formButtonsStyles = StyleSheet.create({
   buttonsContainer: {
     marginTop: 40,
   },

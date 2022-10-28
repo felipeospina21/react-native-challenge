@@ -1,13 +1,13 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../App';
-import MainView from '../../components/MainView/MainView';
+import { HomeLayout } from '../../Layouts';
 import { secondProps } from './props';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Second'>;
 
 export default function SecondView({ navigation }: Props) {
   return (
-    <MainView
+    <HomeLayout
       {...secondProps}
       navigateNext={() => navigation.navigate('Third')}
       navigateSkip={() => navigation.navigate('SignIn')}

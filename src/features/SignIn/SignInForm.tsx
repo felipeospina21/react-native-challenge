@@ -2,13 +2,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import type { ProfileScreenNavigationProp } from '../../App';
-import { CustomCheckBox } from '../../components/Forms/CheckBox/CustomCheckBox';
 import {
+  CustomCheckBox,
+  FormButtons,
   SignInFormData,
   SignInFormInput,
   signInSchema,
-} from '../../components/Forms/ControlledInput/SignInFormInput';
-import { SignButtons } from '../../components/SignView/SignButtons/SignButtons';
+} from '../../components';
 import { theme } from '../../styles/theme';
 
 export function SignInForm() {
@@ -44,7 +44,7 @@ export function SignInForm() {
       />
       <CustomCheckBox text="Remember Me" />
 
-      <SignButtons
+      <FormButtons
         onPress={handleSubmit(onSubmit)}
         buttonText="Sign In"
         text="Don't have an account?  "

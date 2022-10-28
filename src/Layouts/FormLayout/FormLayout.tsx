@@ -8,13 +8,13 @@ import {
   View,
 } from 'react-native';
 import login from '../../assets/login.png';
-import { signViewStyles as styles } from './SignView.styles';
+import { signViewStyles as styles } from './FormLayout.styles';
 
-interface SignViewProps {
+interface FormLayoutProps {
   children: JSX.Element;
 }
 
-export function SignView({ children }: SignViewProps) {
+export function FormLayout({ children }: FormLayoutProps) {
   return (
     <ScrollView style={styles.container}>
       <Image source={login} style={styles.image} resizeMode="stretch" />

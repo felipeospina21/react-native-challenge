@@ -3,17 +3,12 @@ import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { Alert } from 'react-native';
 import type { ProfileScreenNavigationProp } from '../../App';
-import {
-  SignUpFormData,
-  SignUpFormInput,
-  signUpSchema,
-} from '../../components/Forms/ControlledInput/SignUpFormInput';
-import { SignButtons } from '../../components/SignView/SignButtons/SignButtons';
+import { FormButtons, SignUpFormData, SignUpFormInput, signUpSchema } from '../../components';
 import { theme } from '../../styles/theme';
 
 export function SignUpForm() {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
-  const { control, handleSubmit } = useForm<SignUpFormData>({
+  const { control, handleSubmit, setError } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
       userName: '',
@@ -22,14 +17,22 @@ export function SignUpForm() {
       confirmPassword: '',
     },
   });
+
   const {
     colors: { text_secondary },
   } = theme;
 
-  function onSubmit() {
-    Alert.alert('Welcome', 'you are now registered and can sign in', [
-      { text: 'OK', onPress: () => navigation.navigate('SignIn') },
-    ]);
+  function onSubmit(data: SignUpFormData) {
+    if (data.password !== data.confirmPassword) {
+      setError('confirmPassword', {
+        type: 'custom',
+        message: "password confirmation doesn't match",
+      });
+    } else {
+      Alert.alert('Welcome', 'you are now registered and can sign in', [
+        { text: 'OK', onPress: () => navigation.navigate('SignIn') },
+      ]);
+    }
   }
 
   return (
@@ -59,7 +62,7 @@ export function SignUpForm() {
         }}
       />
 
-      <SignButtons
+      <FormButtons
         onPress={handleSubmit(onSubmit)}
         buttonText="Sign Up"
         text="Already have an account?  "
