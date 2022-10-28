@@ -1,5 +1,5 @@
-import { theme } from '../../styles/theme';
 import { StyleSheet } from 'react-native';
+import { theme } from '../../styles/theme';
 
 const {
   colors,
@@ -11,5 +11,4 @@ export const titleTextStyles = StyleSheet.create({
     fontSize: size.xl,
     color: colors.text_primary,
   },
-
 });

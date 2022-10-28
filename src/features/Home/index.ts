@@ -1,2 +1,2 @@
-export * from './props'
-export { default } from './Home'
+export { default } from './Home';
+export * from './props';

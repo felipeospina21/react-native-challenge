@@ -1,17 +1,20 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
-import { CustomInput, FormsController } from '../../components/Forms/CustomInput';
+import { Alert } from 'react-native';
+import type { ProfileScreenNavigationProp } from '../../App';
+import {
+  SignUpFormData,
+  SignUpFormInput,
+  signUpSchema,
+} from '../../components/Forms/ControlledInput/SignUpFormInput';
 import { SignButtons } from '../../components/SignView/SignButtons/SignButtons';
 import { theme } from '../../styles/theme';
-import { schema } from '../../components/Forms/CustomInput';
-import { zodResolver } from '@hookform/resolvers/zod';
 
 export function SignUpForm() {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormsController>({
-    resolver: zodResolver(schema),
+  const navigation = useNavigation<ProfileScreenNavigationProp>();
+  const { control, handleSubmit } = useForm<SignUpFormData>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
       userName: '',
       email: '',
@@ -19,62 +22,39 @@ export function SignUpForm() {
       confirmPassword: '',
     },
   });
+  const {
+    colors: { text_secondary },
+  } = theme;
 
-  function onSubmit(data: FormsController) {
-    console.log(data);
+  function onSubmit() {
+    Alert.alert('Welcome', 'you are now registered and can sign in', [
+      { text: 'OK', onPress: () => navigation.navigate('SignIn') },
+    ]);
   }
 
   return (
     <>
-      <CustomInput
-        controllerProps={{
-          name: 'userName',
-          rules: { required: true },
-          control,
-        }}
-        errors={errors}
-        inputProps={{
-          placeholder: 'User Name',
-          placeholderTextColor: theme.colors.text_secondary,
-        }}
+      <SignUpFormInput
+        controllerProps={{ name: 'userName', control }}
+        inputProps={{ placeholder: 'User Name', placeholderTextColor: text_secondary }}
       />
-
-      <CustomInput
-        controllerProps={{
-          name: 'email',
-          rules: { required: true },
-          control,
-        }}
-        errors={errors}
-        inputProps={{
-          placeholder: 'Email',
-          placeholderTextColor: theme.colors.text_secondary,
-        }}
+      <SignUpFormInput
+        controllerProps={{ name: 'email', control }}
+        inputProps={{ placeholder: 'Email', placeholderTextColor: text_secondary }}
       />
-
-      <CustomInput
-        controllerProps={{
-          name: 'password',
-          rules: { required: true },
-          control,
-        }}
-        errors={errors}
+      <SignUpFormInput
+        controllerProps={{ name: 'password', control }}
         inputProps={{
           placeholder: 'Password',
-          placeholderTextColor: theme.colors.text_secondary,
+          placeholderTextColor: text_secondary,
           secureTextEntry: true,
         }}
       />
-      <CustomInput
-        controllerProps={{
-          name: 'confirmPassword',
-          rules: { required: true },
-          control,
-        }}
-        errors={errors}
+      <SignUpFormInput
+        controllerProps={{ name: 'confirmPassword', control }}
         inputProps={{
           placeholder: 'Confirm Password',
-          placeholderTextColor: theme.colors.text_secondary,
+          placeholderTextColor: text_secondary,
           secureTextEntry: true,
         }}
       />

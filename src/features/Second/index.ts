@@ -1,1 +1,1 @@
-export { default } from './Second'
+export { default } from './Second';

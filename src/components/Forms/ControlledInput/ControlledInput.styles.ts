@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../styles/theme';
+import { theme } from '../../../styles/theme';
 
-export const customInputStyles = StyleSheet.create({
+export const controlledInputStyles = StyleSheet.create({
   input: {
     width: '100%',
     height: 51,

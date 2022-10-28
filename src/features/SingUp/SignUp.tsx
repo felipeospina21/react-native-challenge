@@ -1,7 +1,7 @@
-import { View, Text } from 'react-native';
-import SignView from '../../components/SignView/SignView';
-import { SignUpForm } from './SignUpForm';
+import { Text, View } from 'react-native';
+import { SignView } from '../../components';
 import { signViewStyles as styles } from '../../components/SignView/SignView.styles';
+import { SignUpForm } from './SignUpForm';
 
 export default function SignUp() {
   return (

@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
-import { SignInForm } from './SignInForm';
+import { SignView } from '../../components';
 import { signViewStyles as styles } from '../../components/SignView/SignView.styles';
-import SignView from '../../components/SignView/SignView';
+import { SignInForm } from './SignInForm';
 
 export default function SignIn() {
   return (

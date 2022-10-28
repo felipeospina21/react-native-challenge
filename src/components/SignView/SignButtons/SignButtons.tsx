@@ -1,6 +1,6 @@
-import { View, Text } from 'react-native';
-import { CustomButton } from '../../CustomButton';
 import { Link } from '@react-navigation/native';
+import { Text, View } from 'react-native';
+import { CustomButton } from '../../Buttons/CustomButton/CustomButton';
 import { signButtonsStyles as styles } from './SignButtons.styles';
 
 export interface SignButtonsProps {

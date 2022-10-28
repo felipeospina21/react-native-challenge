@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { Image, View, ImageSourcePropType } from 'react-native';
+import { Image, ImageSourcePropType, View } from 'react-native';
+import { CustomButton, RegularText, TitleText } from '../';
 import { homeStyles as styles } from './MainView.styles';
-import { TitleText, RegularText, CustomButton, Container } from '../';
 
 interface MainViewProps {
   img: ImageSourcePropType;
@@ -11,7 +11,7 @@ interface MainViewProps {
   navigateSkip: () => void;
 }
 
-export default function MainView({
+export function MainView({
   img,
   title,
   text,
@@ -21,13 +21,15 @@ export default function MainView({
   return (
     <View style={styles.container}>
       <Image source={img} style={styles.image} resizeMode="stretch" />
-      <Container style={styles.textContainer}>
+      <View style={styles.textContainer}>
         <TitleText>{title}</TitleText>
         <RegularText>{text}</RegularText>
         <CustomButton title="Next" variant="outline" onPress={navigateNext} />
         <CustomButton title="Skip" variant="ghost" onPress={navigateSkip} />
         <StatusBar style="auto" />
-      </Container>
+      </View>
     </View>
   );
 }
+
+export default MainView;

@@ -1,1 +1,1 @@
-export  * from './RegularText'
+export * from './RegularText';
