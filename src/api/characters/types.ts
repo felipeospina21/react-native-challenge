@@ -1,3 +1,4 @@
+import type { AxiosResponse } from 'axios';
 export interface Character {
   id: number;
   name: string;
@@ -19,12 +20,21 @@ export interface Character {
   created: string;
 }
 
-export interface AllCharacters {
-  info: {
-    count: number;
-    pages: number;
-    next: string | null;
-    prev: string | null;
+export interface AllCharacters extends AxiosResponse {
+  data: {
+    info: {
+      count: number;
+      pages: number;
+      next: string | null;
+      prev: string | null;
+    };
+    results: Character[];
   };
-  results: Character[];
+}
+
+export type GenderQueryParam = 'Female' | 'Male' | 'Genderless' | 'unknown' | '';
+
+export interface AllCharactersQueryParams {
+  name?: string;
+  gender?: GenderQueryParam;
 }

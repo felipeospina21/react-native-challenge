@@ -7,6 +7,9 @@ export const theme = {
     text_secondary: '#FFFFFF',
     primary: '#FFB41F',
     secondary: '#88612F',
+    gray: {
+      500: '#3A3A3A',
+    },
   },
   fonts: {
     size: {

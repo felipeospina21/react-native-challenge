@@ -1,22 +1,23 @@
 import { ScrollView, Text, View } from 'react-native';
-import { getAllCharactersQuery } from '../../api';
+import { AllCharactersQueryParams, getAllCharactersQuery } from '../../api';
 import { CharacterCard } from '../../components/Cards/CharacterCard';
 
 interface CardsProps {
-  filterStr: string;
+  queryParams?: AllCharactersQueryParams;
 }
 
-export function Cards({ filterStr }: CardsProps) {
-  const { isLoading, data: characters } = getAllCharactersQuery(filterStr);
+export function Cards({ queryParams }: CardsProps) {
+  const { isLoading, data: characters } = getAllCharactersQuery({ ...queryParams });
   if (isLoading)
     return (
       <View>
         <Text>...loading</Text>
       </View>
     );
+
   return (
-    <ScrollView>
-      {characters?.results.map((character) => (
+    <ScrollView className="my-6">
+      {characters?.data.results.map((character) => (
         <CharacterCard key={character.id} character={character} />
       ))}
     </ScrollView>

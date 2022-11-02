@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
+import { axiosQueryFn } from '../../utils/axiosQueryFn';
 import { customFetch } from '../../utils/customFetch';
-import type { AllCharacters, Character } from './types';
+import type { AllCharacters, AllCharactersQueryParams, Character } from './types';
 
 export function getCharacterQuery(id: number) {
   return useQuery(['character', id], () =>
@@ -8,9 +9,18 @@ export function getCharacterQuery(id: number) {
   );
 }
 
-export function getAllCharactersQuery(nameToFilter?: string) {
-  const filter = nameToFilter ? nameToFilter : '';
-  return useQuery(['characters', filter], () =>
-    customFetch<AllCharacters>(`https://rickandmortyapi.com/api/character/?name=${filter}`)
-  );
+export function getAllCharactersQuery(params: AllCharactersQueryParams) {
+  const formatedName = params.name?.trim();
+
+  return useQuery({
+    queryKey: ['characters', params],
+    queryFn: () =>
+      axiosQueryFn<AllCharacters>({
+        baseURL: 'https://rickandmortyapi.com/api/character',
+        params: {
+          ...params,
+          name: formatedName,
+        },
+      }),
+  });
 }
