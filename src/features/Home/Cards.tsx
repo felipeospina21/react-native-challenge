@@ -1,6 +1,8 @@
-import { FlatList, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { FlatList, TouchableHighlight, View } from 'react-native';
 import { AllCharactersQueryParams, getAllCharactersQuery } from '../../api';
-import { CharacterCard } from '../../components/Cards/CharacterCard';
+import { ProfileScreenNavigationProp } from '../../App';
+import { CharacterCard, MortyLoader } from '../../components';
 
 interface CardsProps {
   queryParams?: AllCharactersQueryParams;
@@ -8,13 +10,9 @@ interface CardsProps {
 
 export function Cards({ queryParams }: CardsProps) {
   const { isLoading, data: characters } = getAllCharactersQuery({ ...queryParams });
+  const navigation = useNavigation<ProfileScreenNavigationProp>();
 
-  if (isLoading)
-    return (
-      <View>
-        <Text>...loading</Text>
-      </View>
-    );
+  if (isLoading) return <MortyLoader />;
 
   return (
     <View className="my-14">
@@ -22,7 +20,11 @@ export function Cards({ queryParams }: CardsProps) {
         horizontal
         data={characters?.data.results}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => <CharacterCard character={item} />}
+        renderItem={({ item }) => (
+          <TouchableHighlight onPress={() => navigation.navigate('Detail', { data: item })}>
+            <CharacterCard character={item} />
+          </TouchableHighlight>
+        )}
       />
     </View>
   );

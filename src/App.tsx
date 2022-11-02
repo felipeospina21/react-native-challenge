@@ -2,6 +2,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { registerRootComponent } from 'expo';
+import { Character } from './api';
+import CardDetail from './features/CardDetail/CardDetail';
 import Home from './features/Home';
 import Profile from './features/Profile';
 import SecondView from './features/Second';
@@ -16,6 +18,7 @@ export type RootStackParamList = {
   SignIn: undefined;
   SignUp: undefined;
   Profile: undefined;
+  Detail: { data: Character };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -36,6 +39,7 @@ function App() {
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="Detail" component={CardDetail} />
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>
