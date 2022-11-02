@@ -9,7 +9,7 @@ interface FilterTagsProps {
 export function FilterTags({ tags, selectedTag, handlePress }: FilterTagsProps) {
   const { colors } = theme;
   return (
-    <View className="flex-row justify-around">
+    <View className="flex-row justify-around mt-3">
       {tags.map((tag, idx) => {
         const fontColor = tag === selectedTag ? 'text-white bg-black' : null;
         function onPress(tag: GenderQueryParam) {

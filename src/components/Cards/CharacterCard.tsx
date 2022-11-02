@@ -1,4 +1,4 @@
-import { Image, Text, View } from 'react-native';
+import { Dimensions, Image, Text, View } from 'react-native';
 import type { Character } from '../../api';
 import { CharacterStatus } from '../Text/CharacterStatus/CharacterStatus';
 
@@ -7,10 +7,13 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ character }: CharacterCardProps) {
+  const { width } = Dimensions.get('window');
+  const ITEM_LENGTH = width * 0.8;
+
   return (
     <View
-      className="rounded-xl w-80 h-96 mx-auto my-2 p-3 shadow-gray-300 bg-white"
-      style={{ elevation: 10 }}
+      className="rounded-xl h-96 mx-2 my-2 p-3 shadow-gray-300 bg-white"
+      style={{ elevation: 10, width: ITEM_LENGTH }}
     >
       <Image
         source={{ uri: character?.image }}
