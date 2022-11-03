@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import type { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 import { Image, TextInput, View } from 'react-native';
 import search from '../../assets/search.png';
@@ -8,6 +9,8 @@ interface FilterProps {
 }
 
 export function SearchBar({ onChange }: FilterProps) {
+  const inputRef = useRef<TextInput>(null);
+
   function handleChange(event: NativeSyntheticEvent<TextInputChangeEventData>) {
     const { text } = event.nativeEvent;
     onChange(text);
@@ -19,6 +22,7 @@ export function SearchBar({ onChange }: FilterProps) {
     >
       <Image source={search} style={{ width: 20, height: 20 }} />
       <TextInput
+        ref={inputRef}
         className="rounded-md px-6 text-lg w-full flex-1"
         selectionColor={theme.colors.gray[500]}
         onChange={handleChange}
