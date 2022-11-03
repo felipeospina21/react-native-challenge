@@ -1,9 +1,9 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Keyboard, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { GenderQueryParam } from '../../api';
-import { FilterTags, SearchBar } from '../../components';
+import { FilterTags, Footer, SearchBar } from '../../components';
 import useDebounce from '../../hooks/useDebounce';
 import { Cards } from './Cards';
 
@@ -14,15 +14,18 @@ export default function Home(): JSX.Element {
 
   return (
     <LinearGradient locations={[0.2, 0.8]} colors={['#F0E14A', '#97CE4C']}>
-      <View className="h-full">
+      <ScrollView className="h-full">
         <StatusBar style="auto" />
-        <View className="mt-5">
-          <Text className="text-xl text-center my-5">Select your character</Text>
-          <SearchBar onChange={setFilterStr} />
-          <FilterTags tags={tags} selectedTag={selectedTag} handlePress={setSelectedTag} />
-          <Cards queryParams={{ name: filterStr, gender: selectedTag }} />
-        </View>
-      </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View className="mt-5">
+            <Text className="text-xl text-center my-5">Select your character</Text>
+            <SearchBar onChange={setFilterStr} />
+            <FilterTags tags={tags} selectedTag={selectedTag} handlePress={setSelectedTag} />
+            <Cards queryParams={{ name: filterStr, gender: selectedTag }} />
+          </View>
+        </TouchableWithoutFeedback>
+        <Footer />
+      </ScrollView>
     </LinearGradient>
   );
 }

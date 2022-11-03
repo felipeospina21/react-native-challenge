@@ -22,5 +22,6 @@ export function getAllCharactersQuery(params: AllCharactersQueryParams) {
           name: formatedName,
         },
       }),
+    onError: (error) => console.log(error),
   });
 }

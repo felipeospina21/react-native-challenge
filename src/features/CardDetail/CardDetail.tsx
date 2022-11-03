@@ -1,7 +1,7 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Image, Text, View } from 'react-native';
+import { Image, ScrollView, Text, View } from 'react-native';
 import type { RootStackParamList } from '../../App';
-import { CharacterStatus } from '../../components/Text/CharacterStatus/CharacterStatus';
+import { CharacterStatus, Footer } from '../../components';
 import { CardField } from './CardField';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
@@ -11,7 +11,7 @@ export default function CardDetail({ route }: Props) {
   return (
     <View className="h-full flex-col bg-gray-400">
       <Image source={{ uri: data.image }} className="w-full h-1/2" resizeMode="cover" />
-      <View
+      <ScrollView
         className="rounded-t-[35px] flex-1 p-7 mt-[-10%] bg-slate-100 shadow-4xl shadow-black"
         style={{ elevation: 40 }}
       >
@@ -23,7 +23,8 @@ export default function CardDetail({ route }: Props) {
           <CardField label="First seen at:" text={data.origin.name} />
           <CardField label="Type:" text={data.type.length ? data.type : 'unknown'} />
         </View>
-      </View>
+        <Footer />
+      </ScrollView>
     </View>
   );
 }

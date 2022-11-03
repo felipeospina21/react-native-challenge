@@ -21,15 +21,13 @@ export interface Character {
 }
 
 export interface AllCharacters extends AxiosResponse {
-  data: {
-    info: {
-      count: number;
-      pages: number;
-      next: string | null;
-      prev: string | null;
-    };
-    results: Character[];
+  info: {
+    count: number;
+    pages: number;
+    next: string | null;
+    prev: string | null;
   };
+  results: Character[];
 }
 
 export type GenderQueryParam = 'Female' | 'Male' | 'Genderless' | 'unknown' | '';

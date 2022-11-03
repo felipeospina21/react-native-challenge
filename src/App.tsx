@@ -3,7 +3,7 @@ import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navig
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { registerRootComponent } from 'expo';
 import { Character } from './api';
-import CardDetail from './features/CardDetail/CardDetail';
+import CardDetail from './features/CardDetail';
 import Home from './features/Home';
 import Profile from './features/Profile';
 import SecondView from './features/Second';

@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { FlatList, TouchableHighlight, View } from 'react-native';
+import { FlatList, Text, TouchableHighlight, View } from 'react-native';
 import { AllCharactersQueryParams, getAllCharactersQuery } from '../../api';
 import { ProfileScreenNavigationProp } from '../../App';
 import { CharacterCard, MortyLoader } from '../../components';
@@ -9,16 +9,23 @@ interface CardsProps {
 }
 
 export function Cards({ queryParams }: CardsProps) {
-  const { isLoading, data: characters } = getAllCharactersQuery({ ...queryParams });
+  const { isLoading, isError, data: characters } = getAllCharactersQuery({ ...queryParams });
   const navigation = useNavigation<ProfileScreenNavigationProp>();
 
   if (isLoading) return <MortyLoader />;
 
+  if (isError)
+    return (
+      <View>
+        <Text>Error</Text>
+      </View>
+    );
+
   return (
-    <View className="my-14">
+    <View className="mt-12">
       <FlatList
         horizontal
-        data={characters?.data.results}
+        data={characters?.data?.results}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <TouchableHighlight onPress={() => navigation.navigate('Detail', { data: item })}>

@@ -14,12 +14,12 @@ export function SearchBar({ onChange }: FilterProps) {
   }
   return (
     <View
-      className="m-4 rounded-2xl p-3 flex-row items-center bg-white shadow-md shadow-black"
+      className="m-4 p-3 flex-row items-center justify-start rounded-2xl bg-white shadow-md shadow-black"
       style={{ elevation: 3 }}
     >
       <Image source={search} style={{ width: 20, height: 20 }} />
       <TextInput
-        className="rounded-md px-6 text-lg"
+        className="rounded-md px-6 text-lg w-full flex-1"
         selectionColor={theme.colors.gray[500]}
         onChange={handleChange}
       />

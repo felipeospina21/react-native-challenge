@@ -4,26 +4,24 @@
     "slug": "halloween-challenge",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon2.png",
+    "icon": "./src/assets/rm_icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./src/assets/splash3.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#429798"
+      "image": "./src/assets/rm_splash1.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#18173f"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/icon2.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./src/assets/rm_icon.png",
+        "backgroundColor": "#97CE4C"
       }
     },
     "web": {
