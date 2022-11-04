@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import { FlatList, TouchableHighlight, View } from 'react-native';
-import { AllCharactersQueryParams, getAllCharactersQuery } from '../../api';
-import { ProfileScreenNavigationProp } from '../../App';
-import { CharacterCard, MortyLoader } from '../../components';
-import { ErrorMsg } from '../../components/Errors';
+import { AllCharactersQueryParams, getAllCharactersQuery } from '../../../api';
+import { ProfileScreenNavigationProp } from '../../../App';
+import { ErrorMsg, MortyLoader } from '../../../components';
+import { CharacterCard } from './CharacterCard';
 
 interface CardsProps {
   queryParams?: AllCharactersQueryParams;

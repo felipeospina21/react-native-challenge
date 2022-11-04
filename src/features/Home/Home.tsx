@@ -5,7 +5,7 @@ import { Keyboard, ScrollView, Text, TouchableWithoutFeedback, View } from 'reac
 import { GenderQueryParam } from '../../api';
 import { FilterTags, Footer, SearchBar } from '../../components';
 import useDebounce from '../../hooks/useDebounce';
-import { Cards } from './Cards';
+import { Cards } from './Cards/Cards';
 
 export default function Home(): JSX.Element {
   const [filterStr, setFilterStr] = useDebounce('', 1000);

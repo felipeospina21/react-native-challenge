@@ -1,5 +1,5 @@
 export * from './Buttons';
-export * from './Cards';
+export * from './Errors';
 export * from './Filter';
 export * from './Footer';
 export * from './Forms';

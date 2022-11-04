@@ -1,6 +1,6 @@
 import { Dimensions, Image, Text, View } from 'react-native';
-import type { Character } from '../../api';
-import { CharacterStatus } from '../Text';
+import type { Character } from '../../../api';
+import { CharacterStatus } from '../../../components/Text';
 
 interface CharacterCardProps {
   character: Character;
